@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Women's Day Celebration</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background-color: #fff9fc;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #9c4668 0%, #ff7eb6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #9c4668;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: #9c4668;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Layout and Sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #9c4668 0%, #ff7eb6 100%);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(156, 70, 104, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(156, 70, 104, 0.3);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #9c4668;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #9c4668;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #9c4668;
+            border-radius: 3px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffeaf3 0%, #fff 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 650px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #9c4668;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        .hero h1 {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.7s;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.9s;
+        }
+
+        .hero-btn {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 1.1s;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateX(50px);
+            animation: fadeInRight 1s forwards 1.3s;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .float-element {
+            position: absolute;
+            opacity: 0.6;
+            animation: float 15s infinite alternate ease-in-out;
+        }
+
+        .float-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .float-2 {
+            top: 60%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+        .float-3 {
+            top: 10%;
+            right: 20%;
+            animation-delay: 1s;
+        }
+
+        .float-4 {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #fff;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            background-color: #ffeaf3;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-container {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, #9c4668, #ff7eb6);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-date {
+            position: absolute;
+            left: -50px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #9c4668 0%, #ff7eb6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transform: translateX(-50%);
+        }
+
+        .timeline-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Stories Section */
+        .stories {
+            background-color: #fff;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .story-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .story-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .story-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .story-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .story-card:hover .story-image img {
+            transform: scale(1.1);
+        }
+
+        .story-content {
+            padding: 1.5rem;
+        }
+
+        .story-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-meta {
+            display: flex;
+            align-items: center;
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .story-meta .field {
+            margin-right: 1rem;
+        }
+
+        /* Events Section */
+        .events {
+            background-color: #ffeaf3;
+        }
+
+        .event-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .event-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .event-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .event-date {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #9c4668 0%, #ff7eb6 100%);
+            color: white;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .newsletter-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            border-radius: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #9c4668;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #ff7eb6;
+        }
+
+        .footer-col p {
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #f0c7d7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #ff7eb6;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+            100% {
+                transform: translateY(10px) rotate(-5deg);
+            }
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background-color: white;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            padding: 2rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #f8f8f8;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background-color: #ff7eb6;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-image {
+                width: 40%;
+                max-width: 450px;
+            }
+
+            .about-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .about-image, .about-content {
+                flex: auto;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: white;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                padding: 1rem 0;
+                transform: translateY(-20px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links li {
+                margin: 0;
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .hero-content {
+                text-align: center;
+                max-width: 100%;
+                padding: 0 1rem;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: 10px;
+                box-shadow: none;
+            }
+
+            .newsletter-input {
+                padding: 1rem;
+                border-radius: 10px 10px 0 0;
+                text-align: center;
+            }
+
+            .newsletter-btn {
+                border-radius: 0 0 10px 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 3rem 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .stories-grid, .event-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🌸</span>
+                Women's Day
+            </a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#timeline">History</a></li>
+                <li><a href="#stories">Stories</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#newsletter" class="btn">Join Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-subtitle">March 8th, 2025</div>
+            <h1>International Women's Day</h1>
+            <p>Celebrating women's achievements, raising awareness against bias, and taking action for equality.</p>
+            <a href="#about" class="btn hero-btn">Learn More</a>
+        </div>
+
+        <img src="/api/placeholder/600/800" alt="Women's Day Celebration" class="hero-image">
+
+        <div class="floating-elements">
+            <div class="float-element float-1">🌸</div>
+            <div class="float-element float-2">✨</div>
+            <div class="float-element float-3">💪</div>
+            <div class="float-element float-4">❤️</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="/api/placeholder/450/600" alt="Women's Day History">
+            </div>
+            <div class="about-content">
+                <h2>Embracing Equality</h2>
+                <p>International Women's Day (IWD) is celebrated annually on March 8 to commemorate the cultural, political, and socioeconomic achievements of women. It's a day to recognize women's achievements, raise awareness about women's equality, and highlight the ongoing struggle for gender parity worldwide.</p>
+                <p>The day also marks a call to action for accelerating gender balance. The theme for International Women's Day 2025 focuses on innovation for gender equality, recognizing the potential of technological advancements to create a more equitable future for all genders.</p>
+                <a href="#" class="btn" id="learnMoreBtn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline" id="timeline">
+        <div class="container">
+            <h2>The History of Women's Day</h2>
+            <p>International Women's Day has been observed for over a century, with the first gathering held in 1911. Here's how it evolved over the years:</p>
+
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-date">1908</div>
+                    <div class="timeline-content">
+                        <h3>The Beginning</h3>
+                        <p>15,000 women marched through New York City demanding shorter working hours, better pay, and the right to vote.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">1911</div>
+                    <div class="timeline-content">
+                        <h3>First International Women's Day</h3>
+                        <p>Following the decision of the International Women's Conference, International Women's Day was honored for the first time in Austria, Denmark, Germany, and Switzerland on March 19.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">1913</div>
+                    <div class="timeline-content">
+                        <h3>Date Changed to March 8</h3>
+                        <p>International Women's Day was transferred to March 8, and it has been celebrated on this day ever since.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">1975</div>
+                    <div class="timeline-content">
+                        <h3>United Nations Recognition</h3>
+                        <p>The United Nations began celebrating International Women's Day during International Women's Year.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2000</div>
+                    <div class="timeline-content">
+                        <h3>Millennium Development Goals</h3>
+                        <p>The UN included gender equality as one of the eight Millennium Development Goals to be achieved by 2015.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <h3>Innovation for Equality</h3>
+                        <p>Today, International Women's Day belongs to all groups collectively everywhere. It's not country, group, or organization specific, but a global day celebrating the social, economic, cultural, and political achievements of women.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section class="stories" id="stories">
+        <div class="container">
+            <h2>Inspiring Women's Stories</h2>
+            <p>Throughout history, women have made extraordinary contributions to their communities and the world. Here are some inspiring stories of women who have made a difference.</p>
+
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="/api/placeholder/400/300" alt="Science and Technology">
+                    </div>
+                    <div class="story-content">
+                        <div class="story-meta">
+                            <span class="field">Science & Technology</span>
+                        </div>
+                        <h3>Breaking Barriers in STEM</h3>
+                        <p>Women continue to break barriers in science, technology, engineering, and mathematics, fields historically dominated by men.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="/api/placeholder/400/300" alt="Business Leaders">
+                    </div>
+                    <div class="story-content">
+                        <div class="story-meta">
+                            <span class="field">Business & Leadership</span>
+                        </div>
+                        <h3>Women in Business</h3>
+                        <p>From startups to Fortune 500 companies, women are leading businesses and driving innovation across industries worldwide.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="/api/placeholder/400/300" alt="Arts and Culture">
+                    </div>
+                    <div class="story-content">
+                        <div class="story-meta">
+                            <span class="field">Arts & Culture</span>
+                        </div>
+                        <h3>Cultural Changemakers</h3>
+                        <p>Women artists, writers, and performers continue to challenge conventions and reshape cultural landscapes globally.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="container">
+            <h2>Upcoming Women's Day Events</h2>
+            <p>Join us in celebrating International Women's Day with these exciting events and activities.</p>
+
+            <div class="event-list">
+                <div class="event-card">
+                    <span class="event-date">March 8, 2025</span>
+                    <h3>Women's Day Gala</h3>
+                    <p>An evening celebrating women's achievements with inspirational speakers, performances, and networking opportunities.</p>
+                    <a href="#" class="btn">RSVP</a>
+                </div>
+
+                <div class="event-card">
+                    <span class="event-date">March 6-10, 2025</span>
+                    <h3>Women in Tech Summit</h3>
+                    <p>A conference dedicated to highlighting women's contributions to technology and discussing pathways to greater inclusion.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+
+                <div class="event-card">
+                    <span class="event-date">March 7, 2025</span>
+                    <h3>Empowerment Workshop</h3>
+                    <p>Interactive sessions focusing on personal and professional development for women of all ages and backgrounds.</p>
+                    <a href="#" class="btn">Register</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter" id="newsletter">
+        <div class="container newsletter-container">
+            <h2>Stay Connected</h2>
+            <p>Subscribe to our newsletter to stay updated on Women's Day events, stories, and initiatives throughout the year.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="btn newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>We are dedicated to celebrating women's achievements and advancing gender equality through education, advocacy, and community events.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">📱</a>
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#"
